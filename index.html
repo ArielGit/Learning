@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" ng-app ng-init="miArray=['A','B','C','D'];">
+<html lang="es" ng-app ng-init="miArray=['A','B','C','D'];novedades = [];">
 <head>
 	 <meta charset="UTF-8">
 	 <title>Ejemplo de AngularJS</title>
@@ -8,13 +8,22 @@
 <body>
 	 <h1>Hola {{nombre}}</h1>
 	 <div class="contenedor">
-	 <form action="">
-		 ¿ Usuario no identificado!, cómo te llamas ? <input type="text" ng-model="nombre">
-		 <p ng-repeat="elemento in miArray" ng-init="indice=$index;">
-		 	Estas en el lugar ( {{indice}} ) :<span> {{elemento}}</span>
-		 </p>
-	 </form>
+		 <form action="">
+			 ¿ Usuario no identificado!, cómo te llamas ? <input type="text" ng-model="nombre">
+			 <p ng-repeat="elemento in miArray" ng-init="indice=$index;">
+			 	Estas en el lugar ( {{indice}} ) :<span> {{elemento}}</span>
+			 </p>
+		 </form>
 	 </div>
+	 <p>
+	 Novedades<br>
+	 <input type="text" ng-model="nuevaNovedad" />
+	 <input type="button" value="agregar" ng-click="novedades.push(nuevaNovedad); nuevaNovedad='';"/>
+	 </p>
+	 <h2>Novedades de Ultimo Momento!</h2>
+	 <p ng-repeat = "novedad in novedades" ng-init="indice = $index">
+	 	Novedad Nro ( {{indice}} ) : {{novedad}} 
+	 </p>
 	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
 </body>
 </html>
