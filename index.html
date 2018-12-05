@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="es" ng-app ng-init="miArray=['A','B','C','D'];">
 <head>
 	 <meta charset="UTF-8">
 	 <title>Ejemplo de AngularJS</title>
 </head>
+
 <body>
 	 <h1>Hola {{nombre}}</h1>
 	 <div class="contenedor">
 	 <form action="">
 	 ¿ Usuario no identificado!, cómo te llamas ? <input type="text" ng-model="nombre">
+	 <p ng-repeat="elemento in miArray">
+	 	Estas en el lugar :<span> {{elemento}}</span>
+	 </p>
 	 </form>
 	 </div>
 	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
