@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" ng-app="acumuladorApp" ng-controller="acumuladorAppCtrl as vm">
+<html lang="es">
 <head>
 	 <meta charset="UTF-8">
 	 <title>Ejemplo de AngularJS</title>
@@ -7,9 +7,9 @@
 
 <body>
 	 <h1>Acumulador</h1>
-	 <h2>Controlde Operaciones</h2>
+	 <h2>Control de Operaciones</h2>
 	 	
-	 <div class="contenedor">
+	 <div class="contenedor" ng-app="acumuladorApp" ng-controller="acumuladorAppCtrl as vm">
 	 		Ingrese Monto: <input type="text" ng-model="vm.monto" size="4" />
 	 		<br/>
 	 		<input type="button" value="+" ng-click="vm.sumar()" />
@@ -21,7 +21,7 @@
     <script type="text/javascript">
     	angular
     		.module('acumuladorApp',[])
-    		.controller('acumuladorAppCtrl', controladorPrincipal);
+    		.controller("acumuladorAppCtrl", controladorPrincipal);
 
     	function controladorPrincipal(){
     		var scope = this;
