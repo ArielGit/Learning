@@ -27,10 +27,12 @@
     		var scope = this;
     		scope.total = 0;
     		scope.monto = 0;
-    		function sumar(){
+
+    		scope.sumar = function(){
     			scope.total += parseInt(scope.monto); 
     		}
-    		function restar(){
+
+    		scope.restar = function(){
     			scope.total -= parseInt(scope.monto);
     		}
     	};
