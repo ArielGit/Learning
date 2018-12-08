@@ -1,31 +1,42 @@
 <!DOCTYPE html>
-<html lang="es" ng-app ng-init="miArray=['A','B','C','D'];novedades = [];">
+<html lang="es" ng-app="acumuladorApp" ng-controller="acumuladorAppCtrl as vm">
 <head>
 	 <meta charset="UTF-8">
 	 <title>Ejemplo de AngularJS</title>
 </head>
 
 <body>
-	 <h1>Hola {{nombre}}</h1>
+	 <h1>Acumulador</h1>
+	 <h2>Controlde Operaciones</h2>
+	 	
 	 <div class="contenedor">
-		 <form action="">
-			 ¿ Usuario no identificado!, cómo te llamas ? <input type="text" ng-model="nombre">
-			 <p ng-repeat="elemento in miArray" ng-init="indice=$index;">
-			 	Estas en el lugar ( {{indice}} ) :<span> {{elemento}}</span>
-			 </p>
-		 </form>
-	 </div>
-	<div class="contenedor">
-		 <p>
-			 Novedades<br>
-			 <input type="text" ng-model="nuevaNovedad" />
-			 <input type="button" value="agregar" ng-click="novedades.push(nuevaNovedad); nuevaNovedad='';"/>
-		 </p>
-		 <h2>Novedades de Ultimo Momento!</h2>
-		 <p ng-repeat = "novedad in novedades" ng-init="indice = $index">
-		 	Novedad Nro ( {{indice}} ) : {{novedad}} 
-		 </p>
+	 		Ingrese Monto: <input type="text" ng-model="vm.monto" size="4" />
+	 		<br/>
+	 		<input type="button" value="+" ng-click="vm.sumar()" />
+	 		<input type="button" value="-" ng-clcik="vm.restar()"/>
+	 		<h2> Totales </h2>
+	 		Acumulado llevamos: <span>{{vm.total}}</span>
 	</div>
+
+    <script type="text/javascript">
+    	angular
+    		.module('acumuladorApp',[])
+    		.controller('acumuladorAppCtrl', controladorPrincipal);
+
+    	function controladorPrincipal(){
+    		var scope = this;
+    		scope.total = 0;
+    		scope.monto = 0;
+    		function sumar(){
+    			scope.total += parseInt(scope.monto); 
+    		}
+    		function restar(){
+    			scope.total -= parseInt(scope.monto);
+    		}
+    	};
+
+    </script>
+
 	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
 </body>
 </html>
